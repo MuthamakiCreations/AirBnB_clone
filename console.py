@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Defines the HBnB console."""
+"""Defines the console."""
 import cmd
 import re
 from shlex import split
@@ -32,10 +32,10 @@ def parse(arg):
 
 
 class HBNBCommand(cmd.Cmd):
-    """Defines the HolbertonBnB command interpreter.
+    """Defines the AirBnB command interpreter.
 
     Attributes:
-        prompt (str): The command prompt.
+        prompt (str): the command prompt.
     """
 
     prompt = "(hbnb) "
@@ -50,11 +50,11 @@ class HBNBCommand(cmd.Cmd):
     }
 
     def emptyline(self):
-        """Do nothing upon receiving an empty line."""
+        """do nothing if command is empty."""
         pass
 
     def default(self, arg):
-        """Default behavior for cmd module when input is invalid"""
+        """Default behavior for cmd module if invalid input is encountered"""
         argdict = {
             "all": self.do_all,
             "show": self.do_show,
@@ -75,17 +75,17 @@ class HBNBCommand(cmd.Cmd):
         return False
 
     def do_quit(self, arg):
-        """Quit command to exit the program."""
+        """Quit command to exit."""
         return True
 
     def do_EOF(self, arg):
-        """EOF signal to exit the program."""
+        """EOF signal to exit."""
         print("")
         return True
 
     def do_create(self, arg):
         """Usage: create <class>
-        Create a new class instance and print its id.
+        Create a new class instance and print id.
         """
         argl = parse(arg)
         if len(argl) == 0:
